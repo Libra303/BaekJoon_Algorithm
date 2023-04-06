@@ -11,30 +11,24 @@ public class Main {
         int loop = Integer.parseInt(st.nextToken());
         int num = Integer.parseInt(st.nextToken());
         int[] arr = new int[loop];
-        List<Integer> list = new ArrayList<>();
+        int max = 0;
 
         for(int i = 0; i < loop; i++){
             arr[i] = Integer.parseInt(st2.nextToken());
         }
-        Arrays.sort(arr);
 
         //로직
         for(int i = 0; i < loop-2; i++){
             for(int j = i+1; j < loop-1; j++){
                 for(int k = j+1; k < loop; k++){
-                    int temp = arr[i]+arr[j]+arr[k];
-                    if(temp <= num){
-                        list.add(temp);
-                    }else {
-                        break;
-                    }
+                    int sum = arr[i]+arr[j]+arr[k];
+                    if(sum <= num && sum > max)  max = sum;
                 }
             }
         }
-        Collections.sort(list);
 
         //출력
-        System.out.println(list.get(list.size()-1));
+        System.out.println(max);
     }
 }
 
