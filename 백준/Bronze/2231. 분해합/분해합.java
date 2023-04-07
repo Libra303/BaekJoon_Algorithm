@@ -11,9 +11,10 @@ public class Main {
         //로직
         while(++num <= n){
             int sum = num;
-            String str = num+"";
-            for(int i = 0; i < str.length(); i++){
-                sum += str.charAt(i) - 48;
+            int temp = num;
+            while(temp != 0){
+                sum += temp % 10;
+                temp /= 10;
             }
             if(sum == n) break;
         }
