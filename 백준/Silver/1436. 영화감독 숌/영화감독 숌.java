@@ -11,21 +11,11 @@ public class Main {
         int count = 1;
 
         //로직
-        while(count <= n){
-            if(isDevil(num)) count++;
+        while(count != n){
             num++;
+            if(String.valueOf(num).contains("666")) count++;
         }
-        System.out.println(num-1);
+        System.out.println(num);
     }
 
-    //종말수판별
-    public static boolean isDevil(int num){
-        String str = num+"";
-        String str2 = str.replace("666","");
-        if(str2.length() <= str.length()-3){
-            return true;
-        }else {
-            return false;
-        }
-    }
 }
