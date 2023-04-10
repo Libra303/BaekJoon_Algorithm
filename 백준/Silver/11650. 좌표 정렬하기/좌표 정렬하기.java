@@ -1,9 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -21,12 +18,20 @@ public class Main {
         }
 
         //정렬
-        list.sort(Comparator.comparing(Ob::getX).thenComparing(Ob::getY));
-
+        //list.sort(Comparator.comparing(Ob::getX).thenComparing(Ob::getY));
+        Collections.sort(list, new Comparator<Ob>() {
+            @Override
+            public int compare(Ob o1, Ob o2) {
+                if (o1.x == o2.x) {
+                    return o1.y - o2.y;
+                }
+                return o1.x - o2.x;
+            }
+        });
 
         //출력
         for(Ob b : list){
-            sb.append(b.getX()+" "+b.getY()+"\n");
+            sb.append(b.x+" "+b.y+"\n");
         }
         System.out.println(sb);
 
@@ -34,20 +39,12 @@ public class Main {
 }
 
 class Ob{
-    int x;
-    int y;
+    public int x;
+    public int y;
 
     public Ob(int x, int y) {
         this.x = x;
         this.y = y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 }
 
