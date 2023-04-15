@@ -8,8 +8,10 @@ public class Main {
         //초기화
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        Map<String,Integer> map = new TreeMap<>(Collections.reverseOrder());
         int loop = Integer.parseInt(br.readLine());
+        
+        //순서때문에 TreeMap이용 reverseOrder로 내림차순
+        Map<String,Integer> map = new TreeMap<>(Collections.reverseOrder());
 
         //로직
         for(int i = 0; i < loop; i++){
