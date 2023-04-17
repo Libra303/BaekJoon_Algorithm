@@ -19,16 +19,18 @@ public class Main {
             set.add(n);
         }
 
+        int count = set.size();
+
         for(int i = 0; i < loop2; i++){
             int n = Integer.parseInt(st3.nextToken());
             if(set.contains(n)){
-                set.remove(n);
+                count--;
             }else {
-                set.add(n);
+                count++;
             }
         }
 
-        System.out.println(set.size());
+        System.out.println(count);
 
     }
 
