@@ -14,21 +14,16 @@ public class Main {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
+            int gcd = gcd(a,b);
 
-            int max = Math.max(a,b);
-            int min = Math.min(a,b);
-            int count = 1;
-            int res = 0;
-
-            while (true){
-                res = max * count;
-                if(res % min == 0) break;
-                count++;
-            }
-
-            sb.append(res).append("\n");
+            sb.append(a * b / gcd).append("\n");
         }
 
         System.out.println(sb);
+    }
+
+    public static int gcd(int num1,int num2){
+        if(num2 == 0) return num1;
+        return gcd(num2, num1 % num2);
     }
 }
